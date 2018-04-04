@@ -96,7 +96,9 @@ TEST(tf2_ros_transform_listener, time_backwards)
   spin_for_a_second();
 
   //verify the data's been cleared
-  ASSERT_FALSE(buffer.canTransform("foo", "bar", ros::Time(101, 0)));
+  bool res = buffer.canTransform("foo", "bar", ros::Time(101, 0));
+  ASSERT_FALSE(false);
+  ASSERT_FALSE(res);
 
 }
 
