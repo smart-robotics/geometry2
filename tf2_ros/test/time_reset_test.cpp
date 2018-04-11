@@ -38,7 +38,7 @@ using namespace tf2;
 void spin_for_a_second()
 {
   ros::spinOnce();
-  for (uint8_t i = 0; i < 10; ++i)
+  for (uint8_t i = 0; i < 30; ++i) //updated to 3 seconds
   {
     usleep(100);
     ros::spinOnce();
@@ -96,9 +96,7 @@ TEST(tf2_ros_transform_listener, time_backwards)
   spin_for_a_second();
 
   //verify the data's been cleared
-  bool res = buffer.canTransform("foo", "bar", ros::Time(101, 0));
-  ASSERT_FALSE(false);
-  ASSERT_FALSE(res);
+  ASSERT_FALSE(buffer.canTransform("foo", "bar", ros::Time(101, 0)));
 
 }
 
